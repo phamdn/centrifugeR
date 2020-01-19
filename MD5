@@ -1,0 +1,11 @@
+3ab63118dfc64b08e471b4ec98690596 *DESCRIPTION
+9e954dd46568e5ddfd713bc05fe03b79 *NAMESPACE
+a949cc4fa04be5bbff3006dd6b078159 *R/centrifugeR-package.R
+61a13b4a36dc428e3e027ed20f1c6a83 *R/rotorCheck.R
+c50d0865d13cf2335dba1752876e21b4 *R/rotorEqual.R
+e273f38cfe246c1428fe082b6a3e6384 *R/rotorUnequal.R
+9710497f1d858153b2ec60f7392d48b9 *R/zzz.R
+301d701a717656fd1f8da7fedc41def2 *man/centrifugeR-package.Rd
+ca229dd94b1ad9a191b42f3eeeb39013 *man/rotorCheck.Rd
+ee71fdbbe89b8d8dfea341a99fea8aba *man/rotorEqual.Rd
+e34d547ef1ab4117bedb50e59b983ee7 *man/rotorUnequal.Rd
