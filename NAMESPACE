@@ -2,6 +2,7 @@
 
 export(rotorCheck)
 export(rotorEqual)
+export(rotorSpeed)
 export(rotorUnequal)
 importFrom(grDevices,palette)
 importFrom(grDevices,rainbow)

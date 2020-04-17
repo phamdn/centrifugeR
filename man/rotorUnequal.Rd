@@ -32,7 +32,7 @@ The number of rotor buckets \code{n} ranges from \code{4} to
   be named automatically (i.e. \code{S1, S2, S3, } etc.).
 }
 \examples{
-# Input the names and the masses of tubes from the keyboard
+# Call the function then input the names and the masses of tubes
 rotorUnequal(30)
 liver
 10.05
@@ -41,14 +41,15 @@ gill
 muscle
 9.88
 
-# Prepare the masses of tubes before calling the function
+# Prepare the masses of tubes then call the function
 samples <- round(rnorm(19, mean = 10, sd = 0.5), 2)
 rotorUnequal(30, samples)
 
-# Prepare the masses and the names of tubes before calling the function
+# Prepare the masses and the names of tubes then call the function
 small.samples <- c(10.05, 9.68, 9.88)
 names(small.samples) <- c("liver", "gill", "muscle")
 rotorUnequal(30, small.samples)
+
 }
 \references{
 Sivek G. On vanishing sums of distinct roots of unity. Integers.

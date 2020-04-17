@@ -1,0 +1,13 @@
+citHeader("To cite centrifugeR in publications use:")
+citEntry(entry = "Manual",
+title = "centrifugeR: Non-Trivial Balance of Centrifuge Rotors",
+author = person("Duy Nghia", "Pham"),
+publisher = "engrXiv",
+year = "2020",
+month = "Jan",
+day = "28",
+doi ="10.31224/osf.io/4xs38",
+url = "https://engrxiv.org/4xs38/",
+textVersion =
+paste("Pham, Duy Nghia. 2020. “centrifugeR: Non-Trivial Balance of Centrifuge Rotors.” engrXiv. January 28. doi:10.31224/osf.io/4xs38.")
+)

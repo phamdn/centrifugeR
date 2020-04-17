@@ -19,7 +19,7 @@ rotorCheck(n, k = NULL)
 }
 \description{
 \code{rotorCheck} returns the numbers of tubes that can and cannot be loaded
-in centrifuge rotors.
+in a single operation.
 }
 \details{
 The number of rotor buckets \code{n} ranges from \code{4} to
@@ -29,6 +29,7 @@ The number of rotor buckets \code{n} ranges from \code{4} to
 \examples{
 rotorCheck(30)
 rotorCheck(30, 19)
+
 }
 \references{
 Sivek G. On vanishing sums of distinct roots of unity. Integers.

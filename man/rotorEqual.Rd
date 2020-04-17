@@ -30,6 +30,7 @@ The number of rotor buckets \code{n} ranges from \code{4} to
 \examples{
 rotorEqual(30, 11)
 rotorEqual(30, 19)
+
 }
 \references{
 Sivek G. On vanishing sums of distinct roots of unity. Integers.
