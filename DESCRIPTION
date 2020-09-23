@@ -1,7 +1,7 @@
 Package: centrifugeR
 Type: Package
 Title: Non-Trivial Balance of Centrifuge Rotors
-Version: 0.1.4
+Version: 0.1.5
 Authors@R: person("Duy Nghia", "Pham", email = "nghiapham@yandex.com",
     role = c("aut", "cre"), comment = c(ORCID = "0000-0003-1349-1710"))
 Description: Find the numbers of tubes that can be loaded in centrifuge
@@ -13,10 +13,10 @@ Depends: R (>= 3.6.0)
 Imports: pracma (>= 2.2.9), grDevices, graphics, utils
 License: GPL-3
 Encoding: UTF-8
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1
 NeedsCompilation: no
-Packaged: 2020-04-16 22:56:00 UTC; Nghia Pham
+Packaged: 2020-09-23 07:20:57 UTC; Nghia Pham
 Author: Duy Nghia Pham [aut, cre] (<https://orcid.org/0000-0003-1349-1710>)
 Maintainer: Duy Nghia Pham <nghiapham@yandex.com>
 Repository: CRAN
-Date/Publication: 2020-04-17 08:00:06 UTC
+Date/Publication: 2020-09-23 08:40:15 UTC

@@ -4,12 +4,16 @@
 \alias{rotorEqual}
 \title{Balance Tubes of Equal Mass}
 \usage{
-rotorEqual(n, k)
+rotorEqual(n, k, seed = 2019)
 }
 \arguments{
 \item{n}{an integer, the number of rotor buckets.}
 
 \item{k}{an integer, the number of tubes.}
+
+\item{seed}{an integer, the seed for random number generation. Setting a seed
+ensures the reproducibility of the result. See \code{\link{set.seed}} for
+more details.}
 }
 \value{
 \code{rotorEqual} returns a list with two components:

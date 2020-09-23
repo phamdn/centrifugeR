@@ -7,7 +7,7 @@
 \description{
 Find the numbers of tubes that can be loaded in centrifuge rotors in a single
 operation and show how to balance these tubes in cases of equal or unequal
-masses. Refer to Pham (2020) <doi:10.31224/osf.io/4xs38> for more information
+masses. Refer to Pham (2020) \url{https://doi.org/10.31224/osf.io/4xs38} for more information
 on package functionality.
 }
 \section{Guidelines}{
@@ -17,12 +17,13 @@ on package functionality.
   balance these tubes given that they have the same mass. If their masses are
   not the same, use \code{\link{rotorUnequal}} to know which tubes must be
   increased in mass before they can be loaded. Also, call
+  \code{\link{rotorVerify}} to verify pre-existing tube configurations and
   \code{\link{rotorSpeed}} if RPM/RCF conversion is needed.
 }
 
 \section{Copyright}{
  centrifugeR: Non-Trivial Balance of Centrifuge Rotors.
-  Copyright (C) 2019  Duy Nghia Pham \cr \cr centrifugeR is free software:
+  Copyright (C) 2020  Duy Nghia Pham \cr \cr centrifugeR is free software:
   you can redistribute it and/or modify it under the terms of the GNU General
   Public License as published by the Free Software Foundation, either version
   3 of the License, or (at your option) any later version. \cr \cr

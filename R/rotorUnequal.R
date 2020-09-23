@@ -6,6 +6,9 @@
 #' @param n an integer, the number of rotor buckets.
 #' @param mass a numeric vector with optional \code{names} attribute, the masses
 #'   (and optional names) of tubes.
+#' @param seed an integer, the seed for random number generation. Setting a seed
+#'   ensures the reproducibility of the result. See \code{\link{set.seed}} for
+#'   more details.
 #'
 #' @details The number of rotor buckets \code{n} ranges from \code{4} to
 #'   \code{48}. The number of tubes (i.e. \code{length(mass)}) should not be
@@ -48,7 +51,8 @@
 #' rotorUnequal(30, small.samples)
 #'
 #' @export
-rotorUnequal <- function (n, mass = NULL) {
+rotorUnequal <- function (n, mass = NULL, seed = 2019) {
+    set.seed(seed)
     if (n < 4 | n > 48) {
         stop("The rotor must have at least 4 buckets and no more than 48 buckets. \n")
     }
@@ -56,9 +60,6 @@ rotorUnequal <- function (n, mass = NULL) {
         message("For each line, input the one-word name and the mass of one tube separated by a whitespace (e.g. lizard 9.81). Press ENTER to start a new line or press ENTER two times to finish. \n")
         input <- scan("", list(character(), numeric()))
         mass <- "names<-"(input[[2]], input[[1]])
-    }
-    if (sum(mass <= 0) > 0) {
-        warning("Mass values should be positive. \n")
     }
     if (is.null(names(mass))) {
         nm <- vector()
@@ -69,7 +70,10 @@ rotorUnequal <- function (n, mass = NULL) {
     }
     k <- length(mass)
     if (k == 0 | k > n) {
-        stop("The number of tubes must not be 0 or greater than the number of rotor buckets. \n")
+        stop("The number of tubes must neither be 0 nor greater than the number of rotor buckets. \n")
+    }
+    if (sum(mass <= 0) > 0) {
+        stop("Mass values must be positive. \n")
     }
     prime <- unique(factors(n))
     coeff <- mapply(seq, 0, n / prime, SIMPLIFY = FALSE)

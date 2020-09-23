@@ -4,13 +4,17 @@
 \alias{rotorUnequal}
 \title{Balance Tubes of Unequal Mass}
 \usage{
-rotorUnequal(n, mass = NULL)
+rotorUnequal(n, mass = NULL, seed = 2019)
 }
 \arguments{
 \item{n}{an integer, the number of rotor buckets.}
 
 \item{mass}{a numeric vector with optional \code{names} attribute, the masses
 (and optional names) of tubes.}
+
+\item{seed}{an integer, the seed for random number generation. Setting a seed
+ensures the reproducibility of the result. See \code{\link{set.seed}} for
+more details.}
 }
 \value{
 \code{rotorUnequal} returns a data frame with three columns:

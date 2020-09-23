@@ -5,6 +5,9 @@
 #'
 #' @param n an integer, the number of rotor buckets.
 #' @param k an integer, the number of tubes.
+#' @param seed an integer, the seed for random number generation. Setting a seed
+#'   ensures the reproducibility of the result. See \code{\link{set.seed}} for
+#'   more details.
 #'
 #' @details The number of rotor buckets \code{n} ranges from \code{4} to
 #'   \code{48}. The number of tubes \code{k} must be greater than \code{0} and
@@ -29,7 +32,8 @@
 #' rotorEqual(30, 19)
 #'
 #' @export
-rotorEqual <- function (n, k) {
+rotorEqual <- function (n, k, seed = 2019) {
+    set.seed(seed)
     if (n < 4 | n > 48) {
         stop("The rotor must have at least 4 buckets and no more than 48 buckets. \n")
     }
