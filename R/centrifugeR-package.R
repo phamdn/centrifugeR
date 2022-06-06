@@ -32,8 +32,8 @@
 #'   Public License along with centrifugeR.  If not, see
 #'   \url{https://www.gnu.org/licenses/}.
 #'
-#' @importFrom grDevices palette rainbow
-#' @importFrom graphics pie
+#' @importFrom grDevices palette rainbow recordPlot as.graphicsAnnot dev.flush dev.hold
+#' @importFrom graphics pie par lines plot.new plot.window polygon text title
 #' @importFrom utils capture.output
 #' @importFrom pracma factors dot
 NULL

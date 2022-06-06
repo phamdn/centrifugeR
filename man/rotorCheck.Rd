@@ -26,11 +26,6 @@ The number of rotor buckets \code{n} ranges from \code{4} to
   \code{48}. \cr\cr If \code{k} is specified, \code{rotorCheck} will check
   whether the input number of tubes can be loaded or not.
 }
-\examples{
-rotorCheck(30)
-rotorCheck(30, 19)
-
-}
 \references{
 Sivek G. On vanishing sums of distinct roots of unity. Integers.
   2010;10(3):365-8.

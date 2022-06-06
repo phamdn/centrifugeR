@@ -27,15 +27,12 @@
 #' @seealso \code{\link{rotorCheck}} for checking centrifuge rotors and
 #'   \code{\link{rotorUnequal}} for balancing tubes of unequal mass.
 #'
-#' @examples
-#' rotorEqual(30, 11)
-#' rotorEqual(30, 19)
-#'
 #' @export
 rotorEqual <- function (n, k, seed = 2019) {
+    .Deprecated("rotor")
     set.seed(seed)
     if (n < 4 | n > 48) {
-        stop("The rotor must have at least 4 buckets and no more than 48 buckets. \n")
+        stop("Only rotors with 4-48 buckets are supported. \n")
     }
     if (k <= 0 | k >= n) {
         stop("The number of tubes must be greater than 0 and smaller than the number of rotor buckets. \n")

@@ -31,11 +31,6 @@ The number of rotor buckets \code{n} ranges from \code{4} to
   \code{48}. The number of tubes \code{k} must be greater than \code{0} and
   smaller than the number of rotor buckets \code{n}.
 }
-\examples{
-rotorEqual(30, 11)
-rotorEqual(30, 19)
-
-}
 \references{
 Sivek G. On vanishing sums of distinct roots of unity. Integers.
   2010;10(3):365-8. \cr \cr Peil O, Hauryliuk V. A new spin on spinning your

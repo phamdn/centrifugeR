@@ -21,14 +21,11 @@
 #' @seealso \code{\link{rotorEqual}} for balancing tubes of equal mass and
 #'   \code{\link{rotorUnequal}} for balancing tubes of unequal mass.
 #'
-#' @examples
-#' rotorCheck(30)
-#' rotorCheck(30, 19)
-#'
 #' @export
 rotorCheck <- function (n, k = NULL) {
+    .Deprecated("rotor")
     if (n < 4 | n > 48) {
-        stop("The rotor must have at least 4 buckets and no more than 48 buckets. \n")
+        stop("Only rotors with 4-48 buckets are supported. \n")
     }
     prime <- unique(factors(n))
     coeff <- mapply(seq, 0, n / prime, SIMPLIFY = FALSE)
