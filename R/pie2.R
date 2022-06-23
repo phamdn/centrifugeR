@@ -1,7 +1,30 @@
+#' Draw a Rotor
+#'
+#' \code{pie2} was modified after \code{\link{pie}}. This is not meant to be
+#' called directly.
+#'
+#' @param x See \code{\link{pie}} for more details.
+#' @param labels See \code{\link{pie}} for more details.
+#' @param edges See \code{\link{pie}} for more details.
+#' @param radius See \code{\link{pie}} for more details.
+#' @param clockwise See \code{\link{pie}} for more details.
+#' @param init.angle See \code{\link{pie}} for more details.
+#' @param density See \code{\link{pie}} for more details.
+#' @param angle See \code{\link{pie}} for more details.
+#' @param col See \code{\link{pie}} for more details.
+#' @param border See \code{\link{pie}} for more details.
+#' @param lty See \code{\link{pie}} for more details.
+#' @param main See \code{\link{pie}} for more details.
+#' @param panel a letter for labeling panel.
+#' @param ... See \code{\link{pie}} for more details.
+#'
+#' @return \code{pie2} returns a figure.
+#'
+#'
 #' @export
 pie2 <- function (x, labels = names(x), edges = 200, radius = 0.8, clockwise = FALSE,
           init.angle = if (clockwise) 90 else 0, density = NULL, angle = 45,
-          col = NULL, border = NULL, lty = NULL, main = NULL, ...)
+          col = NULL, border = NULL, lty = NULL, main = NULL, panel = NULL, ...)
 {
     if (!is.numeric(x) || any(is.na(x) | x < 0))
         stop("'x' values must be positive.")
@@ -54,6 +77,7 @@ pie2 <- function (x, labels = names(x), edges = 200, radius = 0.8, clockwise = F
                  adj = 0.5, ...)
         }
     }
-    title(main = main, ...)
+    mtext(main, side = 1, adj = 0.5, line = 2, font=2, cex = 1.5)
+    mtext(panel, side = 3, adj = 0.1, line = 1, font=2, cex = 1.5)
     invisible(NULL)
 }

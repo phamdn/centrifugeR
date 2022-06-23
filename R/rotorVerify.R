@@ -26,37 +26,6 @@ rotorVerify <- function (n, pos) {
     if (sum(pos < 1 | pos > n | pos != floor(pos) | duplicated(pos)) > 0) {
         stop(paste("The positions of tubes must be different integers ranging from 1 to", n, "\n"))
     }
-    # k <- length(pos)
-    # rt <- rotor(n)
-    # if (!k %in% rt$check$valid) {
-    #     stop(paste(
-    #         "CANNOT load", k, "tubes in a rotor with", n, "buckets\n"
-    #     ))
-    # }
-
-    # if (n < 4 | n > 48) {
-    #     stop("The rotor must have at least 4 buckets and no more than 48 buckets. \n")
-    # }
-
-    # if (k == 0 | k > n) {
-    #     stop("The number of tubes must neither be 0 nor greater than the number of rotor buckets. \n")
-    # }
-
-    # prime <- unique(factors(n))
-    # coeff <- mapply(seq, 0, n / prime, SIMPLIFY = FALSE)
-    # coeff.com <- do.call(expand.grid, coeff)
-    # linear <- apply(coeff.com, 1, function(x) dot(x, prime))
-    # if (!k %in% linear | !(n - k) %in% linear) {
-    #     stop(paste("CANNOT load", k, "tubes in a rotor with", n, "buckets. \n"))
-    # }
-
-    # if (sum(abs(rowSums(sapply(pos, p2c, n))) < 1e-10) == 2) {
-    #     # message("The rotor is balanced")
-    #     result <- 1
-    # } else {
-    #     # message("The rotor is unbalanced")
-    #     result <- 0
-    # }
     result <- ifelse(sum(abs(rowSums(sapply(pos, p2c, n))) < 1e-10) == 2, 1, 0)
     result
 }

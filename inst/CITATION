@@ -7,7 +7,7 @@ year = "2020",
 month = "Jan",
 day = "28",
 doi ="10.31224/osf.io/4xs38",
-url = "https://engrxiv.org/4xs38/",
+url = "https://engrxiv.org/preprint/view/828",
 textVersion =
 paste("Pham, Duy Nghia. 2020. “centrifugeR: Non-Trivial Balance of Centrifuge Rotors.” engrXiv. January 28. doi:10.31224/osf.io/4xs38.")
 )

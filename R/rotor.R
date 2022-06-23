@@ -1,3 +1,46 @@
+#' Balance Tubes Using Higher-Order Symmetrical Configurations
+#'
+#' \code{rotor} returns the numbers of tubes that can and cannot be loaded
+#' in a centrifuge rotor and optionally shows various ways to balance a certain
+#' number of tubes.
+#'
+#' @param n an integer, the number of rotor holes.
+#' @param k an integer, the number of tubes (optional).
+#' @param seed an integer, the seed for random number generation. Setting a seed
+#'   ensures the reproducibility of the result. See \code{\link{set.seed}} for
+#'   more details.
+#' @param elapse an integer, the constrained time in seconds for random sampling.
+#'
+#' @details The number of rotor holes \code{n} ranges from \code{4} to
+#'   \code{48}.
+#'
+#' @return \code{rotor} returns a list with two components:
+#'   \item{\code{check}}{a list with three components:
+#'   \describe{\item{\code{n}}{the number of rotor holes.}
+#'   \item{\code{valid}}{a vector containing the numbers of tubes that can be
+#'   loaded.}
+#'   \item{\code{invalid}}{a vector containing the numbers of tubes that cannot be
+#'   loaded.}}
+#'   } \item{\code{load}}{a list with three components:
+#'   \describe{
+#'   \item{\code{k}}{the number of tubes.}
+#'   \item{\code{decompose}}{a data frame showing different ways to decompose \code{k}.}
+#'   \item{\code{hole}}{a data frame showing hole positions to load tubes.}
+#'   \item{\code{visual}}{a list of rotor images showing hole positions to load tubes.}
+#'   }
+#'   }
+#'
+#' @references Sivek G. On vanishing sums of distinct roots of unity. Integers.
+#'   2010;10(3):365-8. \cr \cr Peil O, Hauryliuk V. A new spin on spinning your
+#'   samples: balancing rotors in a non-trivial manner. arXiv preprint
+#'   arXiv:1004.3671. 2010 Apr 21.
+#'
+#' @seealso \code{\link{rotorVerify}} for verifying the balance of pre-existing
+#'   tube configurations.
+#'
+#' @examples
+#' rotor(30, 7)
+#'
 #' @export
 rotor <- function (n, k = NULL, seed = 1, elapse = 1) {
     set.seed(seed)
@@ -27,16 +70,16 @@ rotor <- function (n, k = NULL, seed = 1, elapse = 1) {
             '#000000'
         )
     if (n < 4 | n > 48) {
-        stop("Only rotors with 4-48 buckets are supported\n")
+        stop("Only rotors with 4-48 holes are supported\n")
     }
-    prime <- unique(factors(n)) #balanced set of ? tubes (a kind)
-    scalar <- mapply(seq, 0, n / prime, SIMPLIFY = FALSE) #how many sets can be created
-    coeff <- do.call(expand.grid, scalar) #how many sets of each kind
-    LC <- apply(coeff, 1, function(x) dot(x, prime)) #linear combination - total no. of tubes
+    prime <- unique(factors(n))
+    scalar <- mapply(seq, 0, n / prime, SIMPLIFY = FALSE)
+    coeff <- do.call(expand.grid, scalar)
+    LC <- apply(coeff, 1, function(x) dot(x, prime))
 
     k.valid <- vector()
     for (i in 1:n) {
-        if (i %in% LC & (n - i) %in% LC) { #check if both k and n-k appear
+        if (i %in% LC & (n - i) %in% LC) {
             k.valid <- c(k.valid, i)
         }
     }
@@ -50,17 +93,18 @@ rotor <- function (n, k = NULL, seed = 1, elapse = 1) {
             RotSym <- lapply(prime, function(x) asplit(matrix(1:n, n / x, x), 1)) #possible holes for each kind
 
             decompose <- data.frame()
-            bucket <- data.frame()
+            hole <- data.frame()
             visual <- list()
 
             idx <- which(LC == k) #where k appears in the linear combination list
 
             for (j in seq_along(idx)) { #each time k appears
-                cof <- coeff[idx[j], ] #how many sets of each kind
+                cof <- coeff[idx[j], ] #how many sets of each conf. kind
                 count <- 0
+                # loaded <- vector()
                 stime <- Sys.time()
                 etime <- Sys.time()
-                while (k != count) { #do until total no. of filled holes reach k
+                while (k != count || !1 %in% loaded) { #do until total no. of filled holes reach k
                     if (etime - stime >= elapse) { #give up if taking so much time
                         loaded <- rep(NA, k)
                         break
@@ -70,7 +114,7 @@ rotor <- function (n, k = NULL, seed = 1, elapse = 1) {
                     etime <- Sys.time()
                 }
                 decompose <- rbind(decompose, cof) #how many sets of each kind - summary
-                bucket <- rbind(bucket, loaded) #corresponding holes
+                hole <- rbind(hole, loaded) #corresponding holes
 
                 if (any(is.na(loaded))) { #if fail to fill holes, draw nothing
                     visual[[j]] <- NA
@@ -88,6 +132,7 @@ rotor <- function (n, k = NULL, seed = 1, elapse = 1) {
                         }
                     }
                     detail <- substring(detail,1, nchar(detail)-1) #delete the + at right end
+
                     pie2( #draw the rotor
                         rep(1, n),
                         radius = 1,
@@ -95,22 +140,23 @@ rotor <- function (n, k = NULL, seed = 1, elapse = 1) {
                         init.angle = 90 + 180 / n,
                         col = col.code,
                         border = "black",
-                        # main = paste("Rotor with", n, "buckets"),
-                        main = detail,
-                        cex.main=1.5
+                        main = detail
                     )
-                    # par(new=TRUE)
-                    # pie(
-                    #     rep(1, n),
-                    #     labels = NA,
-                    #     radius = 0.75,
-                    #     clockwise = TRUE,
-                    #     init.angle = 90 + 180 / n,
-                    #     col = 0,
-                    #     border = "black"
-                    # )
+
+                    par(new=TRUE)
+                    pie2(
+                        rep(1, n),
+                        labels = NA,
+                        radius = 0.05,
+                        clockwise = TRUE,
+                        init.angle = 90 + 180 / n,
+                        col = "white",
+                        border = "white"
+                    )
                     p <- recordPlot()
+
                     visual[[j]] <- p
+
                 }
 
 
@@ -118,19 +164,18 @@ rotor <- function (n, k = NULL, seed = 1, elapse = 1) {
             }
 
             colnames(decompose) <- prime
-            colnames(bucket) <- NULL
-            rownames(bucket) <- idx
+            colnames(hole) <- NULL
+            rownames(hole) <- idx
             names(visual) <- idx
-            load <- list(k = k, decompose = decompose, bucket = bucket, visual = visual)
+            load <- list(k = k, decompose = decompose, hole = hole, visual = visual)
             rs <- list(check = check, load = load)
 
         } else {
             message(paste(
-                "CANNOT load", k, "tubes in a rotor with", n, "buckets\n"
+                "CANNOT load", k, "tubes in a rotor with", n, "holes\n"
             ))
         }
     }
 
     rs
 }
-
