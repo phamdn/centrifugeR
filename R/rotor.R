@@ -107,6 +107,7 @@ rotor <- function (n, k = NULL, seed = 1, elapse = 1) {
                 while (k != count || !1 %in% loaded) { #do until total no. of filled holes reach k
                     if (etime - stime >= elapse) { #give up if taking so much time
                         loaded <- rep(NA, k)
+                        set.seed(1995)
                         break
                     }
                     loaded <- unique(unlist(mapply(sample, RotSym, cof))) #random sampling to fill holes

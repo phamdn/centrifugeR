@@ -13,7 +13,8 @@ functionality.
 \section{Guidelines}{
  centrifugeR helps obtain the perfect centrifuge balance.
   Call \code{\link{rotor}} to know how many tubes can be loaded into the
-  rotor and see different ways to place these tubes. Also, call
+  rotor and see different ways to place these tubes. Alternatively, call
+  \code{\link{launch}} to run the Shiny app. Also, call
   \code{\link{rotorVerify}} to verify the balance of pre-existing tube
   configurations. Call \code{\link{rotorSpeed}} for RPM/RCF conversion.
 }

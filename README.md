@@ -12,6 +12,7 @@ install.packages("centrifugeR")
 # install.packages("devtools")
 devtools::install_github("phamdn/centrifugeR")
 ```
+Or use the Shiny app at https://phamdn.shinyapps.io/centrifugeR/
 
 ## Reference
 
