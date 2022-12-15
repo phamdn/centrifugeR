@@ -12,3 +12,7 @@ install.packages("centrifugeR")
 # install.packages("devtools")
 devtools::install_github("phamdn/centrifugeR")
 ```
+
+## Reference
+
+Pham, D. N. (2020). centrifugeR: Non-trivial Balance of Centrifuge Rotors [Preprint]. engrxiv. https://doi.org/10.31224/osf.io/4xs38
