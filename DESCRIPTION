@@ -1,7 +1,7 @@
 Package: centrifugeR
 Type: Package
 Title: Non-Trivial Balance of Centrifuge Rotors
-Version: 0.1.7
+Version: 0.1.8
 Authors@R: person("Duy Nghia", "Pham", email = "nghiapham@yandex.com",
     role = c("aut", "cre"), comment = c(ORCID = "0000-0003-1349-1710"))
 Description: Find the numbers of test tubes that can be balanced in centrifuge

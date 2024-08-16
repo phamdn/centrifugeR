@@ -29,8 +29,8 @@ ui <- fluidPage(
             hr(),
             h4("Reference"),
             p(
-                "Pham, Duy Nghia. 2020. “centrifugeR: Non-Trivial Balance of Centrifuge Rotors.” engrXiv. January 28.",
-                a("doi:10.31224/osf.io/4xs38.", href = "https://doi.org/10.31224/osf.io/4xs38")
+                "Pham, D. N. (2022). centrifugeR: Non-trivial balance of centrifuge rotors. Qeios.",
+                a("doi:10.32388/NH82PX.", href = "https://doi.org/10.32388/NH82PX")
             )
         ),
 
